@@ -1,0 +1,52 @@
+﻿<mui:ModernDialog x:Class="GUI.View.About"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                  xmlns:mui="http://firstfloorsoftware.com/ModernUI"                   
+                  xmlns:local="clr-namespace:GUI.View"
+                  mc:Ignorable="d" 
+                  d:DesignHeight="300" d:DesignWidth="300" WindowStartupLocation="CenterOwner" ResizeMode="NoResize"
+                  Style="{StaticResource ModernDialogCustom}">
+    <Grid Name="Grid"
+          Margin="0,-10,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
+        <Image HorizontalAlignment="Left"
+               Source="/DaxEvents;component/Images/Ax09.ico"
+               Margin="5,10,0,17"/>
+        <TextBlock Name="AboutApplicationName" 
+                   FontSize="16" Margin="80,10,0,0" 
+                   FontWeight="Bold" 
+                   Height="26" 
+                   VerticalAlignment="Top"/>
+        <TextBlock Name="AboutApplicationVersion" 
+                   FontSize="11" 
+                   Margin="80,36,0,27"/>
+        <TextBlock Name="AboutApplicationCopyright" 
+                   FontSize="11" 
+                   Margin="80,54,0,10"/>
+        <TextBlock Grid.Row="1" 
+                   Margin="5,5,0,0">
+            <Hyperlink NavigateUri="http://develop.russalt.local/MicrosoftDynamicsAXAif50/App/Help/help.htm"
+                       RequestNavigate="Hyperlink_RequestNavigate">
+                Руководство пользователя
+            </Hyperlink>
+        </TextBlock>
+        <TextBlock Grid.Row="2" 
+                   Margin="5,0,0,0">
+            <Hyperlink NavigateUri="mailto:usmanov@russalt.ru?subject=Отзыв о программе DaxEventsViewer"
+                       RequestNavigate="Hyperlink_RequestNavigate">
+                Оставить отзыв
+            </Hyperlink>
+        </TextBlock>
+        <Border Name="BottomBorder"
+                Height="76"
+                VerticalAlignment="Top"
+                Margin="4,0,0,0"
+                BorderThickness="0,2,0,2" />
+    </Grid>
+</mui:ModernDialog>

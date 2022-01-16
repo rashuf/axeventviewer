@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+
+  <?define ProductName="DaxEvents" ?>
+  <?define ProductVersion="2.0.5.0" ?>
+  <!-- TODO необходимо менять ProductCode, чтобы работало обновление (т.е. не удаляя старую версию, поставить другую). UpgradeCode НЕ менять-->
+  <?define ProductCode="5ad37e07-959d-4cf0-a7af-597a532c30a5"?>
+  <?define UpgradeCode="aab4a187-1da1-492b-88f0-2b02e801a1d2"?>
+  <?define Manufacturer='LLC "Russalt"'?>
+  
+  <Product Id="$(var.ProductCode)" Name="$(var.ProductName)" Language="1033" Version="$(var.ProductVersion)" Manufacturer="$(var.Manufacturer)" UpgradeCode="$(var.UpgradeCode)">
+    <Package InstallerVersion="205" Compressed="yes" InstallScope="perUser" InstallPrivileges='limited'/>
+		<MajorUpgrade DowngradeErrorMessage="A newer version of $(var.ProductName) is already installed." AllowSameVersionUpgrades="yes"/>
+    <Media Id="1" Cabinet="Setup.cab" EmbedCab="yes" />
+    <Icon Id="icon.ico" SourceFile="C:\Users\usmanov\source\ivanchenkoau\AxEventViewer\GUI\Images\Icon.ico" />
+    <Property Id="ARPPRODUCTICON" Value="icon.ico" />
+    
+    <WixVariable Id="WixUIBannerBmp" Value="Images\WixUIBannerBmp.bmp"/>
+    <WixVariable Id="WixUIDialogBmp" Value="Images\WixUIDialogBmp.bmp"/>
+      
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="AppDataFolder">
+        <Directory Id="INSTALLLOCATION" Name="$(var.ProductName)">
+          <Directory Id="SQLite_x86" Name="x86" />
+          <Directory Id="SQLite_x64" Name="x64" />
+          <Directory Id="Lang_ru" Name="ru" />
+        </Directory>
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="$(var.ProductName)"/>
+      </Directory>
+      <Directory Id="DesktopFolder"/>
+      <Directory Id="StartupFolder"/>
+    </Directory>
+      
+    <Feature Id="ProductFeature" Title="ApplicationInstaller" Level="1">
+      <ComponentRef Id="ProductComponents" />
+      <ComponentRef Id="SQLiteComponents_x86" />
+      <ComponentRef Id="SQLiteComponents_x64" />
+      <ComponentRef Id="RUComponents" />
+    <!--</Feature>
+    <Feature Id="CreateMenuShortcut" Title="MenuShortcut" Level="1">-->
+      <ComponentRef Id="ShortcutMenu" />
+    <!--</Feature>
+    <Feature Id="CreateDesktopShortcut" Title="DesktopShortcut" Level="1">-->
+      <ComponentRef Id="ShortcutDesktop" />
+    <!--</Feature>
+    <Feature Id="CreateStartupShortcut" Title="StartupShortcut" Level="1">-->
+      <ComponentRef Id="ShortcutStartup" />
+    </Feature>
+    
+    <UI Id="UserInterface">
+      <Property Id="WIXUI_INSTALLDIR" Value="INSTALLLOCATION" />
+      <Property Id="WixUI_Mode" Value="Custom" />
+
+      <TextStyle Id="WixUI_Font_Normal" FaceName="Tahoma" Size="8" />
+      <TextStyle Id="WixUI_Font_Bigger" FaceName="Tahoma" Size="9" Bold="yes" />
+      <TextStyle Id="WixUI_Font_Title" FaceName="Tahoma" Size="9" Bold="yes" />
+
+      <Property Id="DefaultUIFont" Value="WixUI_Font_Normal" />
+
+      <DialogRef Id="ProgressDlg" />
+      <DialogRef Id="ErrorDlg" />
+      <DialogRef Id="FilesInUse" />
+      <DialogRef Id="FatalError" />
+      <DialogRef Id="UserExit" />
+
+      <Publish Dialog="ExitDialog" Control="Finish" Event="EndDialog" Value="Return" Order="999">1</Publish>
+      <Publish Dialog="WelcomeDlg" Control="Next" Event="EndDialog" Value="Return" Order="2"></Publish>
+
+    </UI>
+    <UIRef Id="WixUI_Common" />
+
+	</Product>	
+</Wix>

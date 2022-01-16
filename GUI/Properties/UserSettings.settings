@@ -1,0 +1,57 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="GUI.Properties" GeneratedClassName="UserSettings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DaxPipeName" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)">work</Value>
+    </Setting>
+    <Setting Name="EventShowQty" Provider="PortableSettingsProvider" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="EventShowTime" Provider="PortableSettingsProvider" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">60</Value>
+    </Setting>
+    <Setting Name="EventReadTime" Provider="PortableSettingsProvider" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">180</Value>
+    </Setting>
+    <Setting Name="UserAccount" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="UserPass" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="UserDomain" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="UpdatePath" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="FirstRun" Provider="PortableSettingsProvider" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ThemeColor" Provider="PortableSettingsProvider" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#FF1BA1E2</Value>
+    </Setting>
+    <Setting Name="ThemeSource" Provider="PortableSettingsProvider" Type="System.Uri" Scope="User">
+      <Value Profile="(Default)">/FirstFloor.ModernUI;component/Assets/ModernUI.Light.xaml</Value>
+    </Setting>
+    <Setting Name="ThemeFontSize" Provider="PortableSettingsProvider" Type="FirstFloor.ModernUI.Presentation.FontSize" Scope="User">
+      <Value Profile="(Default)">Large</Value>
+    </Setting>
+    <Setting Name="ThemeLang" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DataBaseName" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)">EventInbox.sqlite</Value>
+    </Setting>
+    <Setting Name="LogFileName" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Logs.txt</Value>
+    </Setting>
+    <Setting Name="DaxExe" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Program Files (x86)\Microsoft Dynamics AX\50\Client\Bin\Ax32.exe</Value>
+    </Setting>
+    <Setting Name="DaxConfig" Provider="PortableSettingsProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\\sfs\Сетевые файлы\!Microsoft DY AX\Ярлыки для запуска Axapta\MS Dynamics Ax 5.0\Конфигурации\Серверные\RS_Work_2009_server.axc</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://schemas.microsoft.com/dynamics/2008/01/services" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="EventInboxService" targetNamespace="http://schemas.microsoft.com/dynamics/2008/01/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_EventInboxService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <http:NegotiateAuthentication xmlns:http="http://schemas.microsoft.com/ws/06/2004/policy/http" />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://schemas.microsoft.com/dynamics/2008/01/services/Imports">
+      <xsd:import schemaLocation="http://develop.russalt.local/MicrosoftDynamicsAXAif50/eventinboxservice.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/dynamics/2008/01/services" />
+      <xsd:import schemaLocation="http://develop.russalt.local/MicrosoftDynamicsAXAif50/eventinboxservice.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" />
+      <xsd:import schemaLocation="http://develop.russalt.local/MicrosoftDynamicsAXAif50/eventinboxservice.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://develop.russalt.local/MicrosoftDynamicsAXAif50/eventinboxservice.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/QueryCriteria" />
+      <xsd:import schemaLocation="http://develop.russalt.local/MicrosoftDynamicsAXAif50/eventinboxservice.svc?xsd=xsd4" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="EventInboxServiceDeleteDataRequest">
+    <wsdl:part name="parameters" element="tns:EventInboxServiceDeleteDataRequest" />
+  </wsdl:message>
+  <wsdl:message name="EventInboxServiceDeleteDataResponse">
+    <wsdl:part name="parameters" element="tns:EventInboxServiceDeleteDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="EventInboxService_deleteData_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q1:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="EventInboxServiceGetUserRequest">
+    <wsdl:part name="parameters" element="tns:EventInboxServiceGetUserRequest" />
+  </wsdl:message>
+  <wsdl:message name="EventInboxServiceGetUserResponse">
+    <wsdl:part name="parameters" element="tns:EventInboxServiceGetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="EventInboxService_getUser_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q2:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="EventInboxServiceSetReadRequest">
+    <wsdl:part name="parameters" element="tns:EventInboxServiceSetReadRequest" />
+  </wsdl:message>
+  <wsdl:message name="EventInboxServiceSetReadResponse">
+    <wsdl:part name="parameters" element="tns:EventInboxServiceSetReadResponse" />
+  </wsdl:message>
+  <wsdl:message name="EventInboxService_setRead_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q3:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="EventInboxServiceFindRequest">
+    <wsdl:part name="parameters" element="tns:EventInboxServiceFindRequest" />
+  </wsdl:message>
+  <wsdl:message name="EventInboxServiceFindResponse">
+    <wsdl:part name="parameters" element="tns:EventInboxServiceFindResponse" />
+  </wsdl:message>
+  <wsdl:message name="EventInboxService_find_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q4:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="EventInboxServiceGetDataRequest">
+    <wsdl:part name="parameters" element="tns:EventInboxServiceGetDataRequest" />
+  </wsdl:message>
+  <wsdl:message name="EventInboxServiceGetDataResponse">
+    <wsdl:part name="parameters" element="tns:EventInboxServiceGetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="EventInboxService_getData_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q5:AifFault" />
+  </wsdl:message>
+  <wsdl:portType name="EventInboxService">
+    <wsdl:operation name="deleteData">
+      <wsdl:input wsaw:Action="http://schemas.microsoft.com/dynamics/2008/01/services/EventInboxService/deleteData" name="EventInboxServiceDeleteDataRequest" message="tns:EventInboxServiceDeleteDataRequest" />
+      <wsdl:output wsaw:Action="http://schemas.microsoft.com/dynamics/2008/01/services/EventInboxService/deleteDataResponse" name="EventInboxServiceDeleteDataResponse" message="tns:EventInboxServiceDeleteDataResponse" />
+      <wsdl:fault wsaw:Action="http://schemas.microsoft.com/dynamics/2008/01/services/EventInboxService/deleteDataAifFaultFault" name="AifFaultFault" message="tns:EventInboxService_deleteData_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUser">
+      <wsdl:input wsaw:Action="http://schemas.microsoft.com/dynamics/2008/01/services/EventInboxService/getUser" name="EventInboxServiceGetUserRequest" message="tns:EventInboxServiceGetUserRequest" />
+      <wsdl:output wsaw:Action="http://schemas.microsoft.com/dynamics/2008/01/services/EventInboxService/getUserResponse" name="EventInboxServiceGetUserResponse" message="tns:EventInboxServiceGetUserResponse" />
+      <wsdl:fault wsaw:Action="http://schemas.microsoft.com/dynamics/2008/01/services/EventInboxService/getUserAifFaultFault" name="AifFaultFault" message="tns:EventInboxService_getUser_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setRead">
+      <wsdl:input wsaw:Action="http://schemas.microsoft.com/dynamics/2008/01/services/EventInboxService/setRead" name="EventInboxServiceSetReadRequest" message="tns:EventInboxServiceSetReadRequest" />
+      <wsdl:output wsaw:Action="http://schemas.microsoft.com/dynamics/2008/01/services/EventInboxService/setReadResponse" name="EventInboxServiceSetReadResponse" message="tns:EventInboxServiceSetReadResponse" />
+      <wsdl:fault wsaw:Action="http://schemas.microsoft.com/dynamics/2008/01/services/EventInboxService/setReadAifFaultFault" name="AifFaultFault" message="tns:EventInboxService_setRead_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="find">
+      <wsdl:input wsaw:Action="http://schemas.microsoft.com/dynamics/2008/01/services/EventInboxService/find" name="EventInboxServiceFindRequest" message="tns:EventInboxServiceFindRequest" />
+      <wsdl:output wsaw:Action="http://schemas.microsoft.com/dynamics/2008/01/services/EventInboxService/findResponse" name="EventInboxServiceFindResponse" message="tns:EventInboxServiceFindResponse" />
+      <wsdl:fault wsaw:Action="http://schemas.microsoft.com/dynamics/2008/01/services/EventInboxService/findAifFaultFault" name="AifFaultFault" message="tns:EventInboxService_find_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getData">
+      <wsdl:input wsaw:Action="http://schemas.microsoft.com/dynamics/2008/01/services/EventInboxService/getData" name="EventInboxServiceGetDataRequest" message="tns:EventInboxServiceGetDataRequest" />
+      <wsdl:output wsaw:Action="http://schemas.microsoft.com/dynamics/2008/01/services/EventInboxService/getDataResponse" name="EventInboxServiceGetDataResponse" message="tns:EventInboxServiceGetDataResponse" />
+      <wsdl:fault wsaw:Action="http://schemas.microsoft.com/dynamics/2008/01/services/EventInboxService/getDataAifFaultFault" name="AifFaultFault" message="tns:EventInboxService_getData_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_EventInboxService" type="tns:EventInboxService">
+    <wsp:PolicyReference URI="#BasicHttpBinding_EventInboxService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="deleteData">
+      <soap:operation soapAction="http://schemas.microsoft.com/dynamics/2008/01/services/EventInboxService/deleteData" style="document" />
+      <wsdl:input name="EventInboxServiceDeleteDataRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="EventInboxServiceDeleteDataResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUser">
+      <soap:operation soapAction="http://schemas.microsoft.com/dynamics/2008/01/services/EventInboxService/getUser" style="document" />
+      <wsdl:input name="EventInboxServiceGetUserRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="EventInboxServiceGetUserResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="setRead">
+      <soap:operation soapAction="http://schemas.microsoft.com/dynamics/2008/01/services/EventInboxService/setRead" style="document" />
+      <wsdl:input name="EventInboxServiceSetReadRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="EventInboxServiceSetReadResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="find">
+      <soap:operation soapAction="http://schemas.microsoft.com/dynamics/2008/01/services/EventInboxService/find" style="document" />
+      <wsdl:input name="EventInboxServiceFindRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="EventInboxServiceFindResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getData">
+      <soap:operation soapAction="http://schemas.microsoft.com/dynamics/2008/01/services/EventInboxService/getData" style="document" />
+      <wsdl:input name="EventInboxServiceGetDataRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="EventInboxServiceGetDataResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EventInboxService">
+    <wsdl:port name="BasicHttpBinding_EventInboxService" binding="tns:BasicHttpBinding_EventInboxService">
+      <soap:address location="http://develop.russalt.local/MicrosoftDynamicsAXAif50/eventinboxservice.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

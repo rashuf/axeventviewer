@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?define ProductName="DAXEventsViewer" ?>
+  <Fragment>
+    <DirectoryRef Id="INSTALLLOCATION" FileSource="..\GUI\bin\Release">
+      <Component Id="ProductComponents" Guid="A85500BF-A326-48E5-8E4D-B83C58AA690B">
+        <RegistryValue Root='HKCU' Key="Software\Russalt\$(var.ProductName)"
+            Name="installed"
+            Type="integer"
+            Value="1"
+            KeyPath="yes"/>
+        <RemoveFolder Id="RemoveInstallLocation" Directory="INSTALLLOCATION" On="uninstall"/>
+        <File Id="DaxEvents.exe" Name="DaxEvents.exe" />
+        <File Id="DaxEvents.exe.config" Name="DaxEvents.exe.config" />
+        <File Id="Model.dll" Name="Model.dll" />
+        <File Id="Model.dll.config" Name="Model.dll.config" />
+        <File Id="DynamicsPipe.exe" Name="DynamicsPipe.exe" />
+        <File Id="EntityFramework.dll" Name="EntityFramework.dll" />
+        <File Id="EntityFramework.SqlServer.dll" Name="EntityFramework.SqlServer.dll" />
+        <File Id="EntityFramework.xml" Name="EntityFramework.xml" />
+        <File Id="EntityFramework.SqlServer.xml" Name="EntityFramework.SqlServer.xml" />
+        <File Id="FirstFloor.ModernUI.dll" Name="FirstFloor.ModernUI.dll" />
+        <File Id="FirstFloor.ModernUI.xml" Name="FirstFloor.ModernUI.xml" />
+        <File Id="Microsoft.Windows.Shell.dll" Name="Microsoft.Windows.Shell.dll" />
+        <File Id="SQLite.CodeFirst.dll" Name="SQLite.CodeFirst.dll" />
+        <File Id="System.Data.SQLite.dll" Name="System.Data.SQLite.dll" />
+        <File Id="System.Data.SQLite.dll.config" Name="System.Data.SQLite.dll.config" />
+        <File Id="System.Data.SQLite.EF6.dll" Name="System.Data.SQLite.EF6.dll" />
+        <File Id="System.Data.SQLite.Linq.dll" Name="System.Data.SQLite.Linq.dll" />
+        <File Id="System.Data.SQLite.xml" Name="System.Data.SQLite.xml" />
+        <File Id="ToastNotifications.dll" Name="ToastNotifications.dll" />
+        <File Id="ToastNotifications.Messages.dll" Name="ToastNotifications.Messages.dll" />
+        <File Id="AutoUpdater.NET.dll" Name="AutoUpdater.NET.dll" />
+        <File Id="AutoUpdater.NET.xml" Name="AutoUpdater.NET.xml" />
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="SQLite_x86" FileSource="..\GUI\bin\Release\x86">
+      <Component Id="SQLiteComponents_x86" Guid="7059DF87-0F9A-4540-8205-90C4744F7970">
+        <RegistryValue Root='HKCU' Key="Software\Russalt\$(var.ProductName)"
+            Name="installed"
+            Type="integer"
+            Value="1"
+            KeyPath="yes"/>
+        <RemoveFolder Id="RemoveSQLite_x86" Directory="SQLite_x86" On="uninstall"/>
+        <File Id="SQLite.Interop.dll_x86" Name="SQLite.Interop.dll" />
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="SQLite_x64" FileSource="..\GUI\bin\Release\x64">
+      <Component Id="SQLiteComponents_x64" Guid="DB1E20E9-B6E9-458C-9869-92981A6C45A3">
+        <RegistryValue Root='HKCU' Key="Software\Russalt\$(var.ProductName)"
+            Name="installed"
+            Type="integer"
+            Value="1"
+            KeyPath="yes"/>
+        <RemoveFolder Id="RemoveSQLite_x64" Directory="SQLite_x64" On="uninstall"/>
+        <File Id="SQLite.Interop.dll_x64" Name="SQLite.Interop.dll" />
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="Lang_ru" FileSource="..\GUI\bin\Release\ru">
+      <Component Id="RUComponents" Guid="8E8DA474-996C-4F49-B319-6EA752C64487">
+        <RegistryValue Root='HKCU' Key="Software\Russalt\$(var.ProductName)"
+            Name="installed"
+            Type="integer"
+            Value="1"
+            KeyPath="yes"/>
+        <RemoveFolder Id="RemoveLang_ru" Directory="Lang_ru" On="uninstall"/>
+        <File Id="DaxEvents.resources.dll" DiskId="1" Name="DaxEvents.resources.dll" />
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ShortcutMenu" Guid="48CC4257-03B9-4360-8F21-858F48D416BE">
+        <Shortcut Id="StartShortcut"
+            Name="$(var.ProductName)"
+            Description="Запустить DaxEvents"
+            Target="[INSTALLLOCATION]DaxEvents.exe"
+            WorkingDirectory="INSTALLLOCATION"/>
+        <Shortcut Id="UninstallDaxEvents"
+            Name="Удалить DaxEvents"
+            Description="Удалить DaxEvents"
+            Target="[SystemFolder]msiexec.exe"
+            Arguments="/x [ProductCode]"/>
+
+        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU"
+            Key="Software\Russalt\$(var.ProductName)"
+            Name="installed"
+            Type="integer"
+            Value="1"
+            KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+  
+    <DirectoryRef Id="DesktopFolder">
+      <Component Id="ShortcutDesktop" Guid="6F52DDB7-78EB-4B89-BC4C-E65AE635D6F0">
+        <Shortcut Id="DesktopShortcut"
+            Name="$(var.ProductName)"
+            Description="Запустить DaxEvents"
+            Target="[INSTALLLOCATION]DaxEvents.exe"
+            WorkingDirectory="INSTALLLOCATION"/>
+        <RemoveFolder Id="DesktopFolder" Directory="DesktopFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU"
+            Key="Software\Russalt\$(var.ProductName)"
+            Name="installed"
+            Type="integer"
+            Value="1"
+            KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="StartupFolder">
+      <Component Id="ShortcutStartup" Guid="E7F288B1-82C7-4E28-8A76-262B5A65BD18">
+        <Shortcut Id="StartupShortcut"
+            Name="$(var.ProductName)"
+            Description="Запустить DaxEvents"
+            Target="[INSTALLLOCATION]DaxEvents.exe"
+            WorkingDirectory="INSTALLLOCATION"/>
+        <RemoveFolder Id="StartupFolder" Directory="StartupFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU"
+            Key="Software\Russalt\$(var.ProductName)"
+            Name="installed"
+            Type="integer"
+            Value="1"
+            KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+    
+  </Fragment>
+</Wix>

@@ -1,0 +1,31 @@
+﻿<mui:ModernWindow x:Class="GUI.View.Root"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+                  Title="Менеджер оповещений" 
+                  IsTitleVisible="True" 
+                  Loaded="ModernWindow_Loaded"
+                  ContentSource="/View/Pages/Home.xaml"
+                  LogoData="{Binding Source={StaticResource AxLogoGeomertry}, Path=Geometry}">
+    <mui:ModernWindow.MenuLinkGroups>
+        <mui:LinkGroup DisplayName="Оповещения">
+            <mui:LinkGroup.Links>
+                <mui:Link x:Name="linkUser" Source="/View/Pages/Home.xaml"/>
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
+
+        <mui:LinkGroup DisplayName="Настройки" GroupKey="settings">
+            <mui:LinkGroup.Links>
+                <mui:Link DisplayName="элементы настройки" Source="/View/Pages/Settings/Settings.xaml" />
+                <mui:Link DisplayName="о программе" Source="/View/Pages/SettingsAbout.xaml" />
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
+    </mui:ModernWindow.MenuLinkGroups>
+
+    <mui:ModernWindow.TitleLinks>
+        <mui:Link DisplayName="На главную" Source="/View/Pages/Home.xaml" />
+        <mui:Link DisplayName="Настройки" Source="/View/Pages/Settings.xaml" />
+        <!--<mui:Link DisplayName="Помощь" Source="http://develop.russalt.local/MicrosoftDynamicsAXAif50/App/Help/help.htm" />-->
+        <mui:Link x:Name="About" DisplayName="О программе" Source="dialog:About"/>
+    </mui:ModernWindow.TitleLinks>
+</mui:ModernWindow>

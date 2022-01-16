@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+
+  <!--+ URF, 09.07.2018-->
+  <?define ProductName="DAXEventsViewer" ?>
+  <?define ProductVersion="2.0.0.2" ?>
+  <?define ProductCode="b7bc7c6f-9a4e-4973-be84-eca8e3427c97"?>
+  <?define UpgradeCode="aab4a187-1da1-492b-88f0-2b02e801a1d2"?>
+  <?define Manufacturer='LLC "Russalt"'?><?define GUI_TargetDir=$(var.GUI.TargetDir)?>
+  <!--- URF, 09.07.2018-->
+  
+  <Product Id="$(var.ProductCode)" Name="$(var.ProductName)" Language="1033" Version="$(var.ProductVersion)" Manufacturer="$(var.Manufacturer)" UpgradeCode="$(var.UpgradeCode)">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+    <!-- InstallPrivileges='limited'-->
+		<MajorUpgrade DowngradeErrorMessage="A newer version of $(var.ProductName) is already installed." />
+    <Media Id="1" Cabinet="Setup.cab" EmbedCab="yes" />
+		<!--<MediaTemplate />-->
+    <Icon Id="icon.ico" SourceFile="C:\Users\usmanov\source\ivanchenkoau\AxEventViewer\GUI\Images\Icon.ico" />
+    <Property Id="ARPPRODUCTICON" Value="icon.ico" />
+		<UI Id="UserInterface">
+      <Property Id="WIXUI_INSTALLDIR" Value="TARGETDIR" />
+      <Property Id="WixUI_Mode" Value="Custom" />
+
+      <TextStyle Id="WixUI_Font_Normal" FaceName="Tahoma" Size="8" />
+      <TextStyle Id="WixUI_Font_Bigger" FaceName="Tahoma" Size="9" Bold="yes" />
+      <TextStyle Id="WixUI_Font_Title" FaceName="Tahoma" Size="9" Bold="yes" />
+
+      <Property Id="DefaultUIFont" Value="WixUI_Font_Normal" />
+
+      <DialogRef Id="ProgressDlg" />
+      <DialogRef Id="ErrorDlg" />
+      <DialogRef Id="FilesInUse" />
+      <DialogRef Id="FatalError" />
+      <DialogRef Id="UserExit" />
+
+      <Publish Dialog="ExitDialog" Control="Finish" Event="EndDialog" Value="Return" Order="999">1</Publish>
+      <Publish Dialog="WelcomeDlg" Control="Next" Event="EndDialog" Value="Return" Order="2"></Publish>
+
+    </UI>
+    <UIRef Id="WixUI_Common" />
+    
+    <!--+ URF, 09.07.2018-->
+    <!--<Property Id="WixUI_Minimal" Value="INSTALLLOCATION" ></Property>-->
+    <!--<WixVariable Id="WixUILicenseRtf" Overridable="yes" Value="License.rtf"/>-->
+    <!--<UIRef Id="WixUI_InstallDir"/>-->
+    <!--- URF, 09.07.2018-->
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="$(var.ProductName)">
+          <Component Id="MainComponent" Guid="A85500BF-A326-48E5-8E4D-B83C58AA690B">
+            <File Id="DaxEvents.exe" DiskId="1" Source="C:\Users\usmanov\source\ivanchenkoau\AxEventViewer\GUI\bin\Release\DaxEvents.exe" />
+            <File Id="DaxEvents.exe.config" DiskId="1" Source="C:\Users\usmanov\source\ivanchenkoau\AxEventViewer\GUI\bin\Release\DaxEvents.exe.config" />
+            <File Id="Model.dll" DiskId="1" Source="C:\Users\usmanov\source\ivanchenkoau\AxEventViewer\GUI\bin\Release\Model.dll" />
+            <File Id="Model.dll.config" DiskId="1" Source="C:\Users\usmanov\source\ivanchenkoau\AxEventViewer\GUI\bin\Release\Model.dll.config" />
+            <File Id="DynamicsPipe.exe" DiskId="1" Source="C:\Users\usmanov\source\ivanchenkoau\AxEventViewer\GUI\bin\Release\" />
+
+            <File Id="EntityFramework.dll" DiskId="1" Source="C:\Users\usmanov\source\ivanchenkoau\AxEventViewer\GUI\bin\Release\EntityFramework.dll" />
+            <File Id="EntityFramework.SqlServer.dll" DiskId="1" Source="C:\Users\usmanov\source\ivanchenkoau\AxEventViewer\GUI\bin\Release\EntityFramework.SqlServer.dll" />
+            <File Id="EntityFramework.xml" DiskId="1" Source="C:\Users\usmanov\source\ivanchenkoau\AxEventViewer\GUI\bin\Release\EntityFramework.xml" />
+            <File Id="EntityFramework.SqlServer.xml" DiskId="1" Source="C:\Users\usmanov\source\ivanchenkoau\AxEventViewer\GUI\bin\Release\EntityFramework.SqlServer.xml" />
+            <File Id="FirstFloor.ModernUI.dll" DiskId="1" Source="C:\Users\usmanov\source\ivanchenkoau\AxEventViewer\GUI\bin\Release\FirstFloor.ModernUI.dll" />
+            <File Id="FirstFloor.ModernUI.xml" DiskId="1" Source="C:\Users\usmanov\source\ivanchenkoau\AxEventViewer\GUI\bin\Release\FirstFloor.ModernUI.xml" />
+            <File Id="Microsoft.Windows.Shell.dll" DiskId="1" Source="C:\Users\usmanov\source\ivanchenkoau\AxEventViewer\GUI\bin\Release\Microsoft.Windows.Shell.dll" />
+            <File Id="SQLite.CodeFirst.dll" DiskId="1" Source="C:\Users\usmanov\source\ivanchenkoau\AxEventViewer\GUI\bin\Release\SQLite.CodeFirst.dll" />
+            <File Id="System.Data.SQLite.dll" DiskId="1" Source="C:\Users\usmanov\source\ivanchenkoau\AxEventViewer\GUI\bin\Release\System.Data.SQLite.dll" />
+            <File Id="System.Data.SQLite.dll.config" DiskId="1" Source="C:\Users\usmanov\source\ivanchenkoau\AxEventViewer\GUI\bin\Release\System.Data.SQLite.dll.config" />
+            <File Id="System.Data.SQLite.EF6.dll" DiskId="1" Source="C:\Users\usmanov\source\ivanchenkoau\AxEventViewer\GUI\bin\Release\System.Data.SQLite.EF6.dll" />
+            <File Id="System.Data.SQLite.Linq.dll" DiskId="1" Source="C:\Users\usmanov\source\ivanchenkoau\AxEventViewer\GUI\bin\Release\System.Data.SQLite.Linq.dll" />
+            <File Id="System.Data.SQLite.xml" DiskId="1" Source="C:\Users\usmanov\source\ivanchenkoau\AxEventViewer\GUI\bin\Release\System.Data.SQLite.xml" />
+            <File Id="ToastNotifications.dll" DiskId="1" Source="C:\Users\usmanov\source\ivanchenkoau\AxEventViewer\GUI\bin\Release\ToastNotifications.dll" />
+            <File Id="ToastNotifications.Messages.dll" DiskId="1" Source="C:\Users\usmanov\source\ivanchenkoau\AxEventViewer\GUI\bin\Release\ToastNotifications.Messages.dll" />
+            
+            <File Id="AutoUpdater.NET.dll" DiskId="1" Source="C:\Users\usmanov\source\ivanchenkoau\AxEventViewer\GUI\bin\Release\" />
+            <File Id="AutoUpdater.NET.xml" DiskId="1" Source="C:\Users\usmanov\source\ivanchenkoau\AxEventViewer\GUI\bin\Release\" />
+          </Component>
+
+          <Directory Id="SQLite_x86" Name="x86">
+            <Component Id="SQLiteComponents_x86" Guid="7059DF87-0F9A-4540-8205-90C4744F7970">
+              <File Id="SQLite.Interop.dll_x86" DiskId="1" Source="C:\Users\usmanov\source\ivanchenkoau\AxEventViewer\GUI\bin\Release\x86\SQLite.Interop.dll" />
+            </Component>
+          </Directory>
+          <Directory Id="SQLite_x64" Name="x64">
+            <Component Id="SQLiteComponents_x64" Guid="DB1E20E9-B6E9-458C-9869-92981A6C45A3">
+              <File Id="SQLite.Interop.dll_x64" DiskId="1" Source="C:\Users\usmanov\source\ivanchenkoau\AxEventViewer\GUI\bin\Release\x64\SQLite.Interop.dll" />
+            </Component>
+          </Directory>
+          <Directory Id="Lang_ru" Name="ru">
+            <Component Id="RUComponents" Guid="8E8DA474-996C-4F49-B319-6EA752C64487">
+              <File Id="DaxEvents.resources.dll" DiskId="1" Source="C:\Users\usmanov\source\ivanchenkoau\AxEventViewer\GUI\bin\Release\ru\DaxEvents.resources.dll" />
+            </Component>
+          </Directory>
+          
+        </Directory>
+      </Directory>
+    <Directory Id="DesktopFolder" SourceName="Desktop" />
+    <Directory Id="MergeRedirectFolder">
+      <Component Id="MyExeComponent" Guid="D43CC5D6-3003-41B8-8F00-D6662B3885F4">
+        <File Id="MyExeFile" Source="[INSTALLFOLDER]DaxEvents.exe" KeyPath="yes">
+          <Shortcut
+            Id="DesktopShortcut"
+            Directory="DesktopFolder"
+            Name="$(var.ProductName)"
+            WorkingDirectory="MergeRedirectFolder" />
+        </File>
+      </Component>
+    </Directory>
+    </Directory>
+
+    <Feature Id="MainFeature" Title="Main Application" Level="1">
+      <ComponentRef Id="MainComponent" />
+      <ComponentRef Id="SQLiteComponents_x86" />
+      <ComponentRef Id="SQLiteComponents_x64" />
+      <ComponentRef Id="RUComponents" />
+    </Feature>
+	</Product>	
+</Wix>
